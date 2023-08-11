@@ -1,0 +1,24 @@
+&i2c_5{
+	status = "okay";
+
+	sec-nfc@27{
+			compatible = "sec-nfc";
+			reg = <0x27>;
+
+			sec-nfc,irq-gpio = <&tlmm 17 0x00>;
+			sec-nfc,ven-gpio = <&tlmm 16 0x00>;
+			sec-nfc,firm-gpio = <&tlmm 130 0x00>;
+			sec-nfc,pow-gpio = <&tlmm 66 0x00>;
+			sec-nfc,clk_req-gpio = <&pm8953_gpios 2 0x00>;
+			interrupt-parent = <&tlmm>;
+			interrupts = <17 0>;
+			interrupt-names = "nfc_irq";
+			pinctrl-names = "nfc_active", "nfc_suspend";
+			pinctrl-0 = <&nfc_int_active &nfc_disable_active
+						&nfc_clk_default>;
+			pinctrl-1 = <&nfc_int_suspend &nfc_disable_suspend>;
+			clocks = <&clock_gcc clk_bb_clk2_pin>;
+			clock-names = "ref_clk";
+		};
+
+};

@@ -1,0 +1,36 @@
+/* ref: sdm429/439.dtsi */
+
+	&reserved_memory {
+		fih_nv: fih_nv_region@0 {
+			compatible = "removed-dma-pool";
+			no-map;
+			reg = <0 0xC3200000 0 0x00800000>;
+		};
+		fih_mem: fih_mem_region@0 {
+			compatible = "removed-dma-pool";
+			no-map;
+			reg = <0 0xC3A00000 0 0x00200000>;
+		};
+	};
+
+  /* Follow KBA-170620021320-3, due to the CMA memory registered
+   * by VENUS/A is occupied by other subsystem or modules.
+   * To resolve it we can change the memory venus-mem in the .dtsi file
+   * from "compatible = "shared-dma-pool"" to compatible = "removed-dma-pool", and the flags "
+   * reusable" should be changed to "no-map".
+   * This will make sure the memory is reserved for Venus use case.
+   */
+	&venus_mem {
+		compatible = "removed-dma-pool";
+		no-map;
+		alloc-ranges = <0x0 0x80000000 0x0 0x10000000>;
+		alignment = <0 0x400000>;
+		size = <0 0x0800000>;
+	};
+
+	&adsp_mem {
+		compatible = "removed-dma-pool";
+		no-map;
+		alignment = <0 0x400000>;
+		size = <0 0x400000>;
+	};

@@ -1,0 +1,13 @@
+#
+# Configuration for FP
+#
+menuconfig INPUT_FINGERPRINT
+	bool "Fingerprints"
+	help
+	  Say Y here, and a list of supported fingerprints will be displayed.
+
+if INPUT_FINGERPRINT
+
+source "drivers/input/fingerprint/goodix_fp/Kconfig"
+
+endif

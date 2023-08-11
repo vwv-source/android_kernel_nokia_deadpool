@@ -1,0 +1,17 @@
+make[1]: Entering directory '/media/vewu/Games/Nokia32KernelProject/android/kernel/out'
+arch/arm64/Makefile:27: ld does not support --fix-cortex-a53-843419; kernel may be susceptible to erratum
+  CHK     include/config/kernel.release
+  Using /media/vewu/Games/Nokia32KernelProject/android/kernel/msm-4.9 as source for kernel
+  GEN     ./Makefile
+  CHK     include/generated/uapi/linux/version.h
+  CHK     include/generated/utsrelease.h
+  CHK     include/generated/bounds.h
+  CHK     include/generated/timeconst.h
+  CHK     include/generated/asm-offsets.h
+  CALL    /media/vewu/Games/Nokia32KernelProject/android/kernel/msm-4.9/scripts/checksyscalls.sh
+  VDSOA   arch/arm64/kernel/vdso/gettimeofday.o
+921d9846-a815-11e9-84ea-ff8bce1b90b6: error trying to exec '/media/vewu/Games/Nokia32KernelProject/android/kernel/msm-4.9/aarch64-linux-android-4.9/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/as': execv: Exec format error
+make[2]: *** [/media/vewu/Games/Nokia32KernelProject/android/kernel/msm-4.9/arch/arm64/kernel/vdso/Makefile:54: arch/arm64/kernel/vdso/gettimeofday.o] Error 1
+make[1]: *** [arch/arm64/Makefile:186: vdso_prepare] Error 2
+make[1]: Leaving directory '/media/vewu/Games/Nokia32KernelProject/android/kernel/out'
+make: *** [Makefile:152: sub-make] Error 2

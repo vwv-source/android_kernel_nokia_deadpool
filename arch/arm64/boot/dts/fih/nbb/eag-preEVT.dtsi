@@ -1,0 +1,15 @@
+/* EAG/RHD EVT SDM429/439 */
+
+/* inherit EVB Settings */
+#include "eag-EVB-429.dtsi"
+
+/* Diff */
+/* Touch */
+#include "touch/touch-hx852x-evt.dtsi"
+#include "touch/touch-gt915l-evt.dtsi"
+
+/* SD */
+#include "misc/sd-evt.dtsi"
+
+/* Common DT Info */
+#include "../common/common_info_v1.dtsi"

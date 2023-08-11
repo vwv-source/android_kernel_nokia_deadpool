@@ -1,0 +1,81 @@
+&soc {
+	gpio_keys {
+		vol_up {
+			status = "disabled";
+		};
+
+		camera_snapshot {
+			status = "disabled";
+		};
+
+		camera_focus {
+			status = "disabled";
+		};
+
+		vol_down {
+			label = "volume_down";
+			gpios = <&tlmm 91 0x1>;
+			linux,input-type = <1>;
+			linux,code = <114>;
+			debounce-interval = <15>;
+			linux,can-disable;
+			gpio-key,wakeup;
+		};
+	};
+};
+
+&spmi_bus {
+
+/*
+   Follow FIH BOOT REQE V3.0,
+   - PMIC RESIN: Volume UP KEY(KEY CODE 115)
+   - KPDPWR/RESIN DO NOT TRIGGER RESET FUNCTION
+   - KPDPWR+RESIN TRIGGER RESET FUNCTION
+*/
+  qcom,pm8953@0 {
+		qcom,power-on@800 {
+			qcom,s3-debounce = <128>;
+			qcom,s3-src = "kpdpwr-and-resin";
+			/* PON: KPDPWR */
+			qcom,pon_1 {
+				qcom,support-reset = <1>;
+				/* RESET TRIGGER TIME: S1 + S2 = 10756ms */
+				qcom,s1-timer = <10256>;
+				qcom,s2-timer = <500>;
+				/* RESET TYPE: SHUTDOWN(4) */
+				qcom,s2-type = <4>;
+			};
+
+			/* PON: RESIN */
+			qcom,pon_2 {
+				linux,code = <115>;
+				qcom,support-reset = <0>;
+			};
+
+			/* PON: KPDPWR + RESIN */
+			qcom,pon_3 {
+				qcom,pon-type = <3>;
+				qcom,support-reset = <0>;
+				qcom,pull-up = <1>;
+				/* RESET TRIGGER TIME: S1 + S2 = 8720ms */
+				qcom,s1-timer = <6720>;
+				qcom,s2-timer = <2000>;
+				/* RESET TYPE: WARM(1) */
+				qcom,s2-type = <1>;
+				qcom,use-bark;
+			};
+		};
+	};
+		
+};
+
+&pmi632_pon {
+	qcom,s3-debounce = <128>;
+	qcom,s3-src = "kpdpwr-and-resin";
+
+	qcom,pon_3 {
+		qcom,pon-type = <3>;
+		qcom,support-reset = <0>;
+		qcom,s2-type = <0>;
+	};
+};

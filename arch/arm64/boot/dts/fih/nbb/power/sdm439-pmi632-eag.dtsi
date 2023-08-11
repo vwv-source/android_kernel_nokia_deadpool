@@ -1,0 +1,30 @@
+
+&vendor {
+	fih_batterydata: qcom,battery-data {
+		qcom,batt-id-range-pct = <15>;
+		#include "qg-batterydata-EAG_HE378_2900mah-110k.dtsi"
+		#include "qg-batterydata-EAG_HE336_2900mah_200k.dtsi"
+		#include "qg-batterydata-fake-2800mah-300k.dtsi"
+		#include "qg-batterydata-EAG_HE336_2900mah_51k.dtsi"
+		#include "qg-batterydata-RHD_HE363mc_3400mah_240k.dtsi"
+	};
+};
+
+&pmi632_charger {
+	qcom,fcc-max-ua = <2030000>; // not common settings, set in project dtsi
+	qcom,thermal-mitigation = <2030000 1800000 1500000 1200000 1000000 800000 600000 500000>;
+};
+
+&pmi632_vadc {
+	chan@2a {
+		label = "bat_therm_PU30";
+		reg = <0x2a>;
+		qcom,decimation = <2>;
+		qcom,pre-div-channel-scaling = <0>;
+		qcom,calibration-type = "ratiometric";
+		qcom,scale-function = <31>;   // SCALE_BATT_THERM_FIH_B3435_10K in qpnp-adc.h
+		qcom,hw-settle-time = <0>;
+		qcom,fast-avg-setup = <0>;
+		qcom,cal-val = <0>;
+};
+};

@@ -1,0 +1,10 @@
+/* EAG/RHD EVT SDM429/439 */
+
+/* inherit EVB Settings */
+#include "rhd-preEVT.dtsi"
+
+/* Diff */
+//#include "touch/touch-novatek-nt36xxx-rhd.dtsi"
+
+/* Common DT Info */
+#include "../common/common_info_v2.dtsi"

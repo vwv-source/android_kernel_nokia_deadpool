@@ -1,0 +1,17 @@
+&spi_6 {
+status = "okay";
+		himax-incell-ts@0 {
+			compatible = "himax,hx83102_spi";
+			reg = <0>;
+			spi-max-frequency = <10000000>;
+			spi-cpha;
+			interrupt-parent = <&tlmm>;
+      interrupts = <65 0x2800>;
+			himax,panel-coords   	= <0 720 0 1440>;
+			himax,display-coords 	= <0 720 0 1440>;
+			himax,irq-gpio       	= <&tlmm 65 0x2800>;
+			himax,rst-gpio 		= <&tlmm 64 0x00>;
+			report_type             = <1>;
+
+		};
+};

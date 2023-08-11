@@ -1,0 +1,51 @@
+/* EAG/RHD EVB SDM429/439 */
+
+/* MemMap parts */
+#include "../common/memmap-evb.dtsi"
+
+/* Common DT Info */
+#include "../common/common_info.dtsi"
+
+/* SYSTEM parts */
+#include "../common/system.dtsi"
+
+/* External LDO control */
+
+/* Keypad parts */
+#include "misc/keypad.dtsi"
+
+/* PMIC parts */
+
+/* GPIO parts */
+
+/* Peripheral */
+
+/* Charging */
+#include "power/sdm439-pmi632-fih.dtsi"
+#include "power/sdm439-pmi632-eag.dtsi"
+
+/* Audio */
+#include "audio/sdm439-internal-audio.dtsi"
+
+/* Camera */
+#include "camera/camera-eag-evt.dtsi"
+
+/* Haptic */
+#include "misc/eag_vibrator.dtsi"
+/* SD */
+#include "misc/sd-evb.dtsi"
+
+/* Fingerprint */
+
+/* Sensor */
+/* NO HALL Sensor */
+
+/* Touch */
+#include "touch/touch-hx852x-evb.dtsi"
+
+/* LCM */
+#include "display/EAG_mdss_panel_common.dtsi"
+#include "display/dsi-panel-fih-st7703-truly-hd-plus-video.dtsi"
+#include "display/dsi-panel-fih-st7703-ctc-hd-plus-video.dtsi"
+#include "display/dsi-panel-fih-st7703-inx-hd-plus-video.dtsi"
+#include "display/dsi-panel-fih-jd9365z-ctc-hd-plus-video.dtsi"

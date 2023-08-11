@@ -1,0 +1,8 @@
+&spmi_bus {
+	pmi632_3: qcom,pmi632@3 {
+		pmi632_vib: qcom,vibrator@5700 {
+			qcom,vib-ldo-volt-uv = <2900000>;
+			qcom,disable-overdrive;
+		};
+	};
+};

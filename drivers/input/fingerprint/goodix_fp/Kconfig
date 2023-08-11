@@ -1,0 +1,9 @@
+#
+# Configuration for Goodix Fingerprint
+#
+config INPUT_GXFP
+	bool "Goodix Fingerprint Driver"
+	default n
+	help
+	  This is a Goodix Fingerprint chipset Driver.
+

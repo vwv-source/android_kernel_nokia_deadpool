@@ -1,0 +1,54 @@
+/* EAG/RHD EVB SDM429/439 */
+
+/* MemMap parts */
+#include "../common/memmap-evb.dtsi"
+
+/* Common DT Info */
+#include "../common/common_info.dtsi"
+
+/* SYSTEM parts */
+#include "../common/system.dtsi"
+
+/* External LDO control */
+
+/* Keypad parts */
+#include "misc/keypad.dtsi"
+
+/* PMIC parts */
+
+/* GPIO parts */
+
+/* Peripheral */
+
+/* Charging */
+#include "power/sdm439-pmi632-fih.dtsi"
+#include "power/sdm439-pmi632-rhd.dtsi"
+
+/* Audio */
+#include "audio/sdm439-internal-audio.dtsi"
+
+/* Camera */
+#include "camera/camera-radiohead-evt.dtsi"
+
+/* Haptic */
+#include "misc/eag_vibrator.dtsi"
+/* SD */
+#include "misc/sd-evb.dtsi"
+
+/* Fingerprint */
+
+/* Sensor */
+/* NO HALL Sensor */
+
+/* Touch */
+#include "touch/touch-hx83102-evt.dtsi"
+#include "touch/touch-hx83102-spi-evt.dtsi"
+
+/* LCM */
+#include "display/RHD_mdss_panel_common.dtsi"
+#include "display/dsi-panel-fih-hx83102-hd-plus-video.dtsi"
+#include "display/dsi-panel-fih-hx83102-hd-plus-inno-video.dtsi"
+#include "display/dsi-panel-fih-nt36525-inno-hd-plus-video.dtsi"
+
+/* Samsung NFC */
+#include "samsungnfc/eag_avl8895_i2c.dtsi"

@@ -1,0 +1,35 @@
+
+&pmi632_qg {
+	qcom,battery-data = <&fih_batterydata>;
+	qcom,vbatt-empty-mv = <3200>;
+	qcom,vbatt-empty-cold-mv = <3000>;
+	qcom,vbatt-cutoff-mv = <3300>;
+	qcom,vbatt-low-mv = <3400>;
+	qcom,vbatt-low-cold-mv = <3600>;
+	qcom,qg-iterm-ma = <150>;
+	qcom,hold-soc-while-full;
+	qcom,linearize-soc;
+	qcom,cl-feedback-on;
+};
+
+&pmi632_charger {
+	qcom,battery-data = <&fih_batterydata>;
+	qcom,fcc-max-ua = <2000000>; // not common settings, set in project dtsi
+	qcom,fv-max-uv = <4400000>;
+	qcom,usb-icl-ua = <3000000>;
+	qcom,thermal-mitigation = <2000000 2000000 1500000 1000000 0>;
+	qcom,float-option = <1>;
+	//qcom,auto-recharge-soc = <90>;
+	qcom,auto-recharge-vbat-mv = <4200>;
+	fih,auto-rechg-high-vbat-mv = <3950>;
+	fih,dcp-2a-function;
+	qcom,sw-jeita-enable;
+};
+
+//&pm8953_typec {
+//	status = "disabled";
+//};
+
+&pm8953_coincell {
+	qcom,charge-enable = <0>;
+};

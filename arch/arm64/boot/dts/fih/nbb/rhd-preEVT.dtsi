@@ -1,0 +1,19 @@
+/* EAG/RHD EVT SDM429/439 */
+
+/* inherit EVB Settings */
+#include "rhd-EVB-439.dtsi"
+
+/* Diff */
+#include "touch/touch-novatek-nt36xxx-rhd.dtsi"
+
+/* External LDO control */
+#include "ext-reguator/fixed-regulator-EVT-v1.dtsi"
+
+/* Fingerprint */
+#include "fingerprint/fingerprint-gf3258-evb.dtsi"
+
+/* SD */
+#include "misc/sd-evt.dtsi"
+
+/* Common DT Info */
+#include "../common/common_info_v1.dtsi"
